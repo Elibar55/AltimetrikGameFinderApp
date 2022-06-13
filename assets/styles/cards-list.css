@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Exo';
+}
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background: #141414;
+  overflow: hidden;
+}
+.bars-container {
+  display: flex;
+  flex-direction: column;
+}
+.nav-bar {
+  width: 100%;
+  height: 94px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background: linear-gradient(180deg, #5fe19b 0%, #36b972 50%, #0ea152 100%);
+  box-shadow: 1px -3px 36px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-bar-search {
+  height: 47px;
+  width: 362px;
+  border-radius: 4px;
+}
+.nav-bar-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.nav-bar-user p {
+  width: 66px;
+  height: 39px;
+  margin-top: 15px;
+  justify-items: center;
+  margin-right: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  font-size: 15px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.title-bar {
+  margin-left: 40px;
+  height: 141px;
+  width: 100%;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.title-text {
+  margin-top: 19px;
+  font-weight: 800;
+  font-size: 48px;
+}
+.subtitle-text {
+  font-weight: 400;
+  font-size: 18px;
+}
+.side-bar-container{
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  width: 260px;
+  font-weight: 400;
+font-size: 18px;  
+  color: #ffffff;
+}
+.nav-links, .pop-title{
+  font-weight: 700;
+font-size: 20px;
+}
+.pop-title{
+  margin-bottom: 18px;
+}
+.nav-links li{
+  margin-bottom: 14px;
+}
+.time-links{
+  margin-top: 37px;
+  margin-bottom: 55px;
+}
+.time-links li{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 17px;
+}
+.search-links li{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 17px;
+  
+}
+.home{
+  color: #5FE19B;
+}
+ul{
+  list-style: none;
+}
+.side-icon{
+  margin-right: 10px;
+}
+.main-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.container {
+  position: absolute;
+  right: -25px;
+  margin-top: 141px;
+  bottom: 0;
+  width: 1200px;
+  height: 780px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 0 0 32%;
+  overflow: scroll;
+}
+
+.container .card {
+  border-radius: 12px;
+  background: #303030;
+  overflow: hidden;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  min-height: 314px;
+  height: 314px;
+  width: 363px;
+  margin: 12px;
+ 
+}
+.card-img {
+  min-height: 180px;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.game-info {
+  position: relative;
+  margin-left: 16px;
+  margin-top: 3%;
+  width: 100%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #939393;
+}
+.game-title {
+  width: 100%;
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: #ffffff;
+}
+.game-release {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  margin-top: 16px;
+  justify-content: space-between;
+}
+.game-genres {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50%;
+  margin-top: 4px;
+  justify-content: space-between;
+}
+.game-data {
+  position: relative;
+  font-weight: 400;
+  color: #ffffff;
+}
