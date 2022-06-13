@@ -4,6 +4,8 @@ let lastGame
 
 const container = document.getElementById('container')
 
+//SCROLL LOADER
+
 let scrollWatcher = new IntersectionObserver(
   (entry, scrollWatcher) => {
     entry.forEach((entry) => {
@@ -18,6 +20,8 @@ let scrollWatcher = new IntersectionObserver(
     threshold: 0.5,
   },
 )
+
+//DATA LOADER
 
 const loadGames = async () => {
   fetch(
