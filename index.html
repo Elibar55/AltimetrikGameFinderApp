@@ -75,14 +75,14 @@
         </p>
       </div>
       <div class="form-container">
-        <form class="login-form" onsubmit="return validation()">
-          <label class="email-box">
+        <form class="login-form" action="/cards-list.html">
+          <label for="email" class="label"></label>
             <input class="input" id="email" type="email" placeholder="Email" />
-            <span class="small"></span>
+            
         
-          </label>
+          
           <div class="field">
-            <label class="pass-box invalid">
+            <label for="password" class="label"></label>
               <input
                 class="input"
                 id="password"
@@ -90,8 +90,8 @@
                 placeholder="Password"
               />
               
-            </label>
-          <span class="small"></span>
+            
+            <span class="error-message"></span>
             <svg
               class="icon icon-success"
               width="24"
@@ -128,7 +128,7 @@
               <p class="remember-me">Remember me</p>
               <a class="forgot-password" href="#">Forgot password?</a>
             </div>
-            <button class="login-button" id="login-button" title="submit" type="submit" onclick="return validation()">Log In</button>
+            <button class="login-button" id="login-button" title="submit" type="submit">Log In</button>
           </div>
         </form>
       </div>
@@ -258,7 +258,8 @@
         </svg>
       </div>
     </div>
-    <script src="/slider.js"></script>
-    <script src="/validation.js"></script>
+    <span class="error-message"></span>
+    <script defer src="/slider.js"></script>
+    <script defer src="/login.js"></script>
   </body>
 </html>

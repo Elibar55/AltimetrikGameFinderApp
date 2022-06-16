@@ -3,7 +3,7 @@ let body = ''
 let lastGame
 
 const container = document.getElementById('container')
-
+const URL = `https://api.rawg.io/api/games?key=d16525c19948468798732d35e4657b48&page=${page}&page_size=20`
 //SCROLL LOADER
 
 let scrollWatcher = new IntersectionObserver(
@@ -25,22 +25,19 @@ let scrollWatcher = new IntersectionObserver(
 
 const loadGames = async () => {
   fetch(
-    `https://api.rawg.io/api/games?key=d16525c19948468798732d35e4657b48&page=${page}&page_size=20`,
+    URL,
   )
     .then((response) => response.json())
     .then(({ results }) => {
       gamesData(results)
-      
-      
     })
     .catch((error) => console.log(error))
-  
+
   const gamesData = (data) => {
-    
     console.log(data)
-  
-    for (let i = 0; i < data.length; i++)  {
-      
+//return list.map
+
+    for (let i = 0; i < data.length; i++) {
       body += `
          <div class="card">
          <div class="game-image">
@@ -54,7 +51,7 @@ const loadGames = async () => {
            </div>
            <div class="game-genres">
              <div>Genres:</div>
-            <div class="game-data">${data[i].genres[0].name}, ${data[i].genres.list}</div>
+            <div class="game-data">${data[i].genres.map(g => `${g.name} `)}</div>
            </div>
            <div class="platforms"></div>
          </div>
@@ -65,7 +62,6 @@ const loadGames = async () => {
     lastGame = gamesLoaded[gamesLoaded.length - 3]
     scrollWatcher.observe(lastGame)
   }
-  
 }
 
 loadGames()

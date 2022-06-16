@@ -234,3 +234,12 @@ body {
   border: 2px solid #00ff00;
 }
 
+.error-message {
+  position: fixed;
+  z-index: 5;
+  top: 200px;
+  left: 300px;
+  background-color: #141414;
+  color: #fafafa;
+
+}

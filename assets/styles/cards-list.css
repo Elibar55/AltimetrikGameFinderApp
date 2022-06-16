@@ -40,7 +40,7 @@ body {
   flex-direction: row;
   align-items: center;
 }
-.nav-bar-user p {
+.logout {
   width: 66px;
   height: 39px;
   margin-top: 15px;
@@ -51,6 +51,7 @@ body {
   font-size: 15px;
   color: #ffffff;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 .title-bar {
