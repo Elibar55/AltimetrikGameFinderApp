@@ -2,7 +2,6 @@ const emailBox = document.querySelector('#email')
 const passBox = document.querySelector('#password')
 const passIconSucc = document.querySelector('.icon-success')
 const passIconErr = document.querySelector('.icon-error')
-var userData = ''
 
 class Login {
   constructor(form, fields) {
@@ -26,7 +25,6 @@ class Login {
       if (error == 0) {
         console.log('success')
 
-        
         fetch('http://localhost:3000/signin', {
           method: 'POST',
           headers: {
@@ -41,22 +39,18 @@ class Login {
           .then((response) => response.json())
           .then((data) => {
             console.log(data)
-            
+
             if (data.error) {
               alert('Error Password or Username') /*displays error message*/
             } else {
-                
-                
-                localStorage.setItem("accessToken", JSON.stringify(data.accessToken))
-                localStorage.setItem("userData", JSON.stringify(data.user))
-                this.form.submit()
+              localStorage.setItem(
+                'accessToken',
+                JSON.stringify(data.accessToken),
+              )
+              localStorage.setItem('userData', JSON.stringify(data.user))
+              this.form.submit()
             }
           })
-          
-          
-          
-          
-        
       }
     })
   }

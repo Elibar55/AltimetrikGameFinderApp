@@ -8,7 +8,7 @@ class Auth {
     }  
 
     validateAuth(auth) {
-        if(auth == "" || auth == null) {
+        if(auth == "" || auth == null || auth == "undefined") {
             window.location.replace("/");
         }else{
             document.querySelector("body").style.display = "block";
