@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TO DO: META TAGS -->
+    
+    <meta name=»description» content=»SEO Game Finder App it`s here to help you find
+    any game you want!
+    resultados de alto rendimiento. El éxito de tu negocio, nuestra obsesión.»>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,11 +15,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/styles/styles.css" />
-    <!-- TO DO TITLE GAME FINDER -->
+
     <title>Game Finder</title>
   </head>
   <body>
-    <!-- TO DO USE SEMANTICS -->
+
     <div class="game-finder-logo">
       <svg
         width="294"
@@ -75,24 +78,25 @@
         </p>
       </div>
       <div class="form-container">
-        <form class="login-form" action="">
+        <form class="login-form" action="/cards-list.html">
+          <label for="email" class="label"></label>
+            <input class="input" id="email" type="email" placeholder="Email" />
+            
+        
+          
           <div class="field">
-            <input
-              class="inputs"
-              id="username"
-              type="name"
-              placeholder="Email"
-            />
-          </div>
-          <div class="field">
-            <input
-              class="inputs"
-              id="password"
-              type="password"
-              placeholder="Password"
-            />
+            <label for="password" class="label"></label>
+              <input
+                class="input"
+                id="password"
+                type="password"
+                placeholder="Password"
+              />
+              
+            
+            <span class="error-message"></span>
             <svg
-              class="eye-logo"
+              class="icon icon-success"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -106,13 +110,28 @@
                 fill="#36B972"
               />
             </svg>
+            <svg
+              class="icon icon-error hidden"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M6.30105 15.577C4.77805 14.268 3.69105 12.773 3.18005 12C3.69005 11.227 4.77805 9.732 6.30105 8.423C7.87405 7.072 9.81605 6 12.0001 6C14.1841 6 16.1261 7.072 17.6991 8.423C19.2221 9.732 20.3091 11.227 20.8201 12C20.3101 12.773 19.2221 14.268 17.6991 15.577C16.1261 16.928 14.1841 18 12.0001 18C9.81605 18 7.87405 16.928 6.30105 15.577ZM12.0001 4C9.14805 4 6.75705 5.395 4.99805 6.906C3.23305 8.423 2.00805 10.138 1.46405 10.97C1.26309 11.2759 1.15601 11.634 1.15601 12C1.15601 12.366 1.26309 12.7241 1.46405 13.03C2.00805 13.862 3.23305 15.577 4.99805 17.094C6.75805 18.605 9.14805 20 12.0001 20C14.8521 20 17.2431 18.605 19.0021 17.094C20.7671 15.577 21.9921 13.862 22.5361 13.03C22.9471 12.402 22.9471 11.599 22.5361 10.97C21.9921 10.138 20.7671 8.423 19.0021 6.906C17.2421 5.395 14.8521 4 12.0001 4ZM10.0001 12C10.0001 11.4696 10.2108 10.9609 10.5858 10.5858C10.9609 10.2107 11.4696 10 12.0001 10C12.5305 10 13.0392 10.2107 13.4143 10.5858C13.7893 10.9609 14.0001 11.4696 14.0001 12C14.0001 12.5304 13.7893 13.0391 13.4143 13.4142C13.0392 13.7893 12.5305 14 12.0001 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2108 13.0391 10.0001 12.5304 10.0001 12ZM12.0001 8C10.9392 8 9.92177 8.42143 9.17163 9.17157C8.42148 9.92172 8.00005 10.9391 8.00005 12C8.00005 13.0609 8.42148 14.0783 9.17163 14.8284C9.92177 15.5786 10.9392 16 12.0001 16C13.0609 16 14.0783 15.5786 14.8285 14.8284C15.5786 14.0783 16.0001 13.0609 16.0001 12C16.0001 10.9391 15.5786 9.92172 14.8285 9.17157C14.0783 8.42143 13.0609 8 12.0001 8Z"
+                fill="#FB5F5F"
+              />
+            </svg>
 
             <div class="form-controls">
               <input type="checkbox" name="remember" id="remember-chk" />
               <p class="remember-me">Remember me</p>
               <a class="forgot-password" href="#">Forgot password?</a>
             </div>
-            <button class="login-button" title="login">Log In</button>
+            <button class="login-button" id="login-button" title="submit" type="submit">Log In</button>
           </div>
         </form>
       </div>
@@ -242,6 +261,8 @@
         </svg>
       </div>
     </div>
-    <script src="slider.js"></script>
+    <span class="error-message"></span>
+    <script defer src="/slider.js"></script>
+    <script defer src="/login.js"></script>
   </body>
 </html>
