@@ -4,10 +4,18 @@
   box-sizing: border-box;
   font-family: 'Exo';
 }
+::-webkit-scrollbar {
+  display: none;
+}
 body {
   width: 100%;
   height: 100vh;
   background: #141414;
+  overflow: hidden;
+}
+.bars-container {
+  display: flex;
+  flex-direction: column;
 }
 .nav-bar {
   width: 100%;
@@ -44,34 +52,112 @@ body {
   color: #ffffff;
   white-space: nowrap;
 }
+
+.title-bar {
+  margin-left: 40px;
+  height: 141px;
+  width: 100%;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.title-text {
+  margin-top: 19px;
+  font-weight: 800;
+  font-size: 48px;
+}
+.subtitle-text {
+  font-weight: 400;
+  font-size: 18px;
+}
+.side-bar-container{
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  width: 260px;
+  font-weight: 400;
+font-size: 18px;  
+  color: #ffffff;
+}
+.nav-links, .pop-title{
+  font-weight: 700;
+font-size: 20px;
+}
+.pop-title{
+  margin-bottom: 18px;
+}
+.nav-links li{
+  margin-bottom: 14px;
+}
+.time-links{
+  margin-top: 37px;
+  margin-bottom: 55px;
+}
+.time-links li{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 17px;
+}
+.search-links li{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 17px;
+  
+}
+.home{
+  color: #5FE19B;
+}
+ul{
+  list-style: none;
+}
+.side-icon{
+  margin-right: 10px;
+}
+.main-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .container {
-  margin-left: 263px;
+  position: absolute;
+  right: -25px;
   margin-top: 141px;
-  min-width: 1161px;
-  height: auto;
+  bottom: 0;
+  width: 1200px;
+  height: 780px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   flex: 0 0 32%;
+  overflow: scroll;
 }
+
 .container .card {
   border-radius: 12px;
   background: #303030;
   overflow: hidden;
 }
 .card {
+  display: flex;
+  flex-direction: column;
+  min-height: 314px;
   height: 314px;
   width: 363px;
   margin: 12px;
+ 
 }
-img {
+.card-img {
+  min-height: 180px;
   width: 100%;
+  height: 180px;
+  object-fit: cover;
 }
 .game-info {
   position: relative;
   margin-left: 16px;
   margin-top: 3%;
-  width: 50%;
+  width: 100%;
   font-weight: 500;
   font-size: 14px;
   line-height: 19px;
@@ -89,6 +175,7 @@ img {
 .game-release {
   display: flex;
   flex-direction: row;
+  width: 50%;
   margin-top: 16px;
   justify-content: space-between;
 }
@@ -96,6 +183,7 @@ img {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 50%;
   margin-top: 4px;
   justify-content: space-between;
 }
