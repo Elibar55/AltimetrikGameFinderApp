@@ -4,6 +4,7 @@ let lastGame
 
 const container = document.getElementById('container')
 const URL = `https://api.rawg.io/api/games?key=d16525c19948468798732d35e4657b48&page=${page}&page_size=20`
+//const detailsURL = `https://api.rawg.io/api/games?key=d16525c19948468798732d35e4657b48&id=${data[i].id}`
 //SCROLL LOADER
 
 let scrollWatcher = new IntersectionObserver(
@@ -16,7 +17,7 @@ let scrollWatcher = new IntersectionObserver(
     })
   },
   {
-    rootMargin: '0px 0px 600px 0px',
+    rootMargin: '0px 0px 300px 0px',
     threshold: 0.5,
   },
 )
@@ -24,9 +25,7 @@ let scrollWatcher = new IntersectionObserver(
 //DATA LOADER
 
 const loadGames = async () => {
-  fetch(
-    URL,
-  )
+  fetch(URL)
     .then((response) => response.json())
     .then(({ results }) => {
       gamesData(results)
@@ -35,46 +34,47 @@ const loadGames = async () => {
 
   const gamesData = (data) => {
     console.log(data)
-    
+
     for (let i = 0; i < data.length; i++) {
+      
       body += `
-         <div class="card">
-         <div class="game-image">
-           <img class="card-img" src=${data[i].background_image} alt="" />
-         </div>
-         <div class="game-info">
-         
-           <div class="game-title">${data[i].name}</div>
-           <div class="game-number">#${i + 1}</div>
-           
-           </div>
-           <div class="game-stats">
-           <div class="game-release">
-             <div>Release date:</div>
-             <div class="game-data">${data[i].released}</div>
-             <div class="platforms">
-             ${data[i].parent_platforms.map(
-               (p) => `<img src="/assets/platforms/${p.platform.name}.svg"/>`
-             )}
-              
+      <div class="card small-card">
+        <img src=${data[i].background_image} alt="" />
+        <div class="card-data">
+          <div class="card-title">
+            <div class="card-name-small">${data[i].name}</div>
+            <div class="card-number">#${i + 1}</div>
+          </div>
+          <div class="card-info">
+          <div class="card-specs-small">
+            <div class="release">
+              Release date:
+              <strong class="data-realeased">${data[i].released}</strong>
             </div>
-           </div>
-           <div class="game-genres">
-             <div>Genres:</div>
-            <div class="game-data">${data[i].genres.map(
-              (g) => `<div class="genres-data">${g.name}</div> `,
-            )}</div>
-           </div>
-            
-         </div>
-       </div>`
+            <div class="genres">
+              Genres:
+              <strong class="data-genres">${data[i].genres.map(
+                (g) => `${g.name}`,
+              )}</strong>
+            </div>
+          </div>
+          <div class="consoles">${data[i].parent_platforms.map((p) =>`<img class="platforms" src="/assets/platforms/${p.platform.name}.svg"/>`)}</div>
+        </div>
+          <div class="card-description hidden">
+          ${fetch(`https://api.rawg.io/api/games/${data[i].id}?key=d16525c19948468798732d35e4657b48`)
+        .then((response) => response.json())
+        .then((data))
+        }
+          </div>
+        </div>
+      </div>
+         `
     }
     document.getElementById('container').innerHTML = body
-    const gamesLoaded = document.querySelectorAll('.container .card')
+    const gamesLoaded = document.querySelectorAll('#container .card')
     lastGame = gamesLoaded[gamesLoaded.length - 3]
     scrollWatcher.observe(lastGame)
   }
 }
 
 loadGames()
-
