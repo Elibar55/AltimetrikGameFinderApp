@@ -5,13 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/assets/styles/cards-list.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Exo:wght@100&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>Game Finder App</title>
   </head>
   <body>
@@ -90,7 +86,13 @@
       </div>
       <div class="title-bar">
         <div class="title-text">New and trending</div>
+        <div class="sub-buttons">
         <h3 class="subtitle-text">Based on player counts and release date</h3>
+        <div class="cards-size-container">
+          <button id="small-cards" class="small-cards active"><img class="svg-small" src="/assets/icons/small-cards-active.svg" alt=""></button>
+          <button id="large-cards" class="large-cards inactive"><img class="svg-large" src="/assets/icons/large-cards-inactive.svg" alt=""></button>
+        </div>
+      </div>
       </div>
     </section>
     <section class="main-container">
@@ -196,7 +198,7 @@
         </li>
       </ul>
     </div>
-    <div class="container " id="container">
+    <div class="container-small" id="container">
 
        </div>
     </div>
@@ -211,6 +213,7 @@
     })
 }
 </script>
+<script src="/cards-buttons.js"></script>
   <script defer src="auth.js"></script>
   <script defer src="init.js"></script>
   <script defer src="cards-list.js"></script>

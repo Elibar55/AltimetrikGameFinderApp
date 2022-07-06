@@ -11,6 +11,7 @@ body {
   width: 100%;
   height: 100vh;
   background: #141414;
+  color: #ffffff;
   overflow: hidden;
 }
 .bars-container {
@@ -102,10 +103,38 @@ body {
   font-weight: 800;
   font-size: 48px;
 }
+.sub-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 .subtitle-text {
   font-weight: 400;
   font-size: 18px;
 }
+.cards-size-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 74px;
+  width: 104px;
+}
+.cards-size-container button {
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  line-height: 5px;
+}
+.active {
+  background: #515151;
+}
+.inactive {
+  background: #303030;
+}
+
 .side-bar-container {
   display: flex;
   flex-direction: column;
@@ -164,126 +193,163 @@ ul {
   justify-content: space-between;
 }
 
-.container {
-  position: absolute;
-  right: -25px;
-  margin-top: 141px;
-  bottom: 0;
-  width: 1200px;
-  height: 780px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  flex: 0 0 32%;
-  overflow: scroll;
-}
-
-.container .card {
-  border-radius: 12px;
-  background: #303030;
-  overflow: hidden;
-}
-.card {
+.container-large {
   display: flex;
   flex-direction: column;
-  min-height: 314px;
+  height: 100vh;
+  width: 697px;
+  overflow-y: auto;
+  margin-right: 15.75rem;
+}
+.large-card {
+  flex: 0 0 auto;
+  height: 538px;
+  margin-bottom: 24px;
+  background: #303030;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.large-card img {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-data {
+  display: flex;
+  flex-direction: column;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+
+.card-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 7px;
+  margin-bottom: 16px;
+}
+.card-name-large {
+  height: 33px;
+  width: 605px;
+  font-weight: 700;
+  font-size: 32px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.card-number {
+  color: #36b972;
+  font-weight: 700;
+  font-size: 24px;
+}
+.card-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-specs-large {
+  display: flex;
+  flex-direction: row;
+  color: #939393;
+  font-weight: 500;
+  font-size: 14px;
+  height: 19px;
+}
+.release {
+  width: 200px;
+}
+strong {
+  margin-left: 10px;
+  margin-right: 20px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #ffffff;
+}
+.data-genres {
+  overflow: hidden;
+  width: 100px;
+}
+.consoles {
+  display: flex;
+  flex-direction: row;
+
+  width: 100px;
+  overflow: hidden;
+  position: relative;
+  right: 0;
+}
+.platforms {
+  margin-left: 16px;
+  width: 20px;
+  height: 20px;
+}
+.card-description {
+  position: relative;
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* SMALL CARDS */
+
+.container-small {
+  width: 100%;
+  height: 780px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+.small-card {
   height: 314px;
   width: 363px;
-  margin: 12px;
+  margin-right: 24px;
+  margin-bottom: 24px;
+  background: #303030;
+  border-radius: 12px;
+  overflow: hidden;
+  flex: 0 0 31%;
 }
-.card-img {
-  min-height: 180px;
+
+.small-card img {
+  position: relative;
   width: 100%;
   height: 180px;
   object-fit: cover;
 }
-.game-info {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  margin-left: 16px;
-  
-  padding-right: 30px;
-  margin-top: 3%;
-  width: 100%;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 19px;
-  color: #939393;
-}
-.game-title {
-  width: 90%;
-  height: 33px;
-  font-family: 'Exo';
-  font-style: normal;
+.card-name-small {
   font-weight: 700;
+  width: 280px;
   font-size: 24px;
-  line-height: 32px;
-  color: #ffffff;
-  overflow: hidden;
   text-overflow: ellipsis;
-}
-.game-number {
-  font-weight: 700;
-  font-size: 18px;
-  color: #36b972;
-}
-.game-stats{
-  display: flex;
-  flex-direction: column;
-  margin-left: 16px;
-  margin-right: 16px;
-}
-.game-release {
-  display: flex;
-  flex-direction: row;
-  width: 360px;
-  margin-top: 16px;
-  
-  justify-content: space-between;
-  font-weight: 500;
-  font-size: 14px;
-  color: #939393;
-}
-.game-genres {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 70%;
-  margin-top: 4px;
-  justify-content: space-between;
-  font-weight: 500;
-  font-size: 14px;
-  color: #939393;
-}
-.game-data {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-  position: relative;
-
-  font-weight: 400;
+  overflow: hidden;
+  white-space: nowrap;
   color: #ffffff;
 }
-.genres-data {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+.consoles img {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
 }
+.card-specs-small {
+  display: flex;
+
+  flex-direction: column;
+  justify-items: space-between;
+  color: #939393;
+  font-weight: 500;
+  font-size: 14px;
+  height: 19px;
+}
+.card-specs-small div {
+  margin-bottom: 4px;
+}
+
 .hidden {
   display: none;
-}
-/* platform icons */
-.platforms{
-  width: 100px;
-  position: relative;
-  justify-content: space-between;
-  margin-right: 25px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 }

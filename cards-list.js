@@ -42,11 +42,11 @@ const loadGames = async () => {
         <img src=${data[i].background_image} alt="" />
         <div class="card-data">
           <div class="card-title">
-            <div class="card-name-small">${data[i].name}</div>
+            <div class="name card-name-small">${data[i].name}</div>
             <div class="card-number">#${i + 1}</div>
           </div>
           <div class="card-info">
-          <div class="card-specs-small">
+          <div class="specs card-specs-small">
             <div class="release">
               Release date:
               <strong class="data-realeased">${data[i].released}</strong>
@@ -61,10 +61,7 @@ const loadGames = async () => {
           <div class="consoles">${data[i].parent_platforms.map((p) =>`<img class="platforms" src="/assets/platforms/${p.platform.name}.svg"/>`)}</div>
         </div>
           <div class="card-description hidden">
-          ${fetch(`https://api.rawg.io/api/games/${data[i].id}?key=d16525c19948468798732d35e4657b48`)
-        .then((response) => response.json())
-        .then((data))
-        }
+          description
           </div>
         </div>
       </div>
