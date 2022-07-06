@@ -1,26 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "altimetrikgamefinderapp",
-  "version": "1.0.0",
-  "description": "Users API",
-  "main": "login.js",
-  "scripts": {
-    "json:server": "json-server-auth db.json"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Elibar55/AltimetrikGameFinderApp.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Elibar55/AltimetrikGameFinderApp/issues"
-  },
-  "homepage": "https://github.com/Elibar55/AltimetrikGameFinderApp#readme",
-  "devDependencies": {
-    "json-server": "^0.17.0",
-    "json-server-auth": "^2.1.0"
-=======
   "scripts": {
     "json:server": "json-server-auth db.json"
   },
@@ -30,6 +8,5 @@
   },
   "dependencies": {
     "jquery": "^3.6.0"
->>>>>>> c196df15b518ec7b05b0ce027c2d148e8bfc8c8d
   }
 }

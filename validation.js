@@ -96,10 +96,3 @@ password.addEventListener('input', () => {
       });
   });
 
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-if(localStorage.getItem)
-=======
->>>>>>> c196df15b518ec7b05b0ce027c2d148e8bfc8c8d
-=======
->>>>>>> Stashed changes

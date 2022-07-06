@@ -3,11 +3,8 @@ let body = ''
 let lastGame
 
 const container = document.getElementById('container')
-<<<<<<< HEAD
-=======
 const URL = `https://api.rawg.io/api/games?key=d16525c19948468798732d35e4657b48&page=${page}&page_size=20`
 //SCROLL LOADER
->>>>>>> c196df15b518ec7b05b0ce027c2d148e8bfc8c8d
 
 let scrollWatcher = new IntersectionObserver(
   (entry, scrollWatcher) => {
@@ -24,34 +21,15 @@ let scrollWatcher = new IntersectionObserver(
   },
 )
 
-<<<<<<< HEAD
-const loadGames = async () => {
-  fetch(
-    `https://api.rawg.io/api/games?key=d16525c19948468798732d35e4657b48&page=${page}&page_size=20`,
-=======
 //DATA LOADER
 
 const loadGames = async () => {
   fetch(
     URL,
->>>>>>> c196df15b518ec7b05b0ce027c2d148e8bfc8c8d
   )
     .then((response) => response.json())
     .then(({ results }) => {
       gamesData(results)
-<<<<<<< HEAD
-      
-      
-    })
-    .catch((error) => console.log(error))
-  
-  const gamesData = (data) => {
-    
-    console.log(data)
-  
-    for (let i = 0; i < data.length; i++)  {
-      
-=======
     })
     .catch((error) => console.log(error))
 
@@ -59,25 +37,12 @@ const loadGames = async () => {
     console.log(data)
     
     for (let i = 0; i < data.length; i++) {
->>>>>>> c196df15b518ec7b05b0ce027c2d148e8bfc8c8d
       body += `
          <div class="card">
          <div class="game-image">
            <img class="card-img" src=${data[i].background_image} alt="" />
          </div>
          <div class="game-info">
-<<<<<<< HEAD
-           <div class="game-title">${data[i].name}</div>
-           <div class="game-release">
-             <div>Release date:</div>
-             <div class="game-data">${data[i].released}</div>
-           </div>
-           <div class="game-genres">
-             <div>Genres:</div>
-            <div class="game-data">${data[i].genres[0].name}, ${data[i].genres.list}</div>
-           </div>
-           <div class="platforms"></div>
-=======
          
            <div class="game-title">${data[i].name}</div>
            <div class="game-number">#${i + 1}</div>
@@ -101,7 +66,6 @@ const loadGames = async () => {
             )}</div>
            </div>
             
->>>>>>> c196df15b518ec7b05b0ce027c2d148e8bfc8c8d
          </div>
        </div>`
     }
@@ -110,14 +74,7 @@ const loadGames = async () => {
     lastGame = gamesLoaded[gamesLoaded.length - 3]
     scrollWatcher.observe(lastGame)
   }
-<<<<<<< HEAD
-  
-}
-
-loadGames()
-=======
 }
 
 loadGames()
 
->>>>>>> c196df15b518ec7b05b0ce027c2d148e8bfc8c8d
