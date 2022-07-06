@@ -1,6 +1,7 @@
 {
   "users": [
     {
+<<<<<<< HEAD
       "email": "olivier@mail.com",
       "password": "$2a$10$nTCHjtRltlsvP5t6xznuaud7cQtz.0mHJVRUARyjDQkF2UJSfZO/m",
       "id": 1
@@ -24,6 +25,11 @@
       "email": "prueba@gmail.com",
       "password": "$2a$10$b25hO2IhmtkjvhENlQQTYOx/uOaqvH3aof.EKXFoEDxtUDE9KDdXS",
       "id": 5
+=======
+      "email": "prueba@gmail.com",
+      "password": "$2a$10$HN23azazM2UKwFZyF0SLkeK5T4lk/wmbv518eUuan.8JegGXT/hU.",
+      "id": 1
+>>>>>>> c196df15b518ec7b05b0ce027c2d148e8bfc8c8d
     }
   ]
 }
