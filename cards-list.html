@@ -68,7 +68,6 @@
           id="search"
           type="search"
           value=""
-          onchange="searchHistory()"
           placeholder="Search games..."
         />
         <svg  class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -176,7 +175,7 @@
               fill="#5FE19B"
             />
           </svg>
-          <a href="#" id="last-searches">Last searches</a>
+          <a href="#" id="last-searches" onclick="lastSearches()">Last searches</a>
         </li>
         <li>
           <svg
@@ -203,21 +202,13 @@
        </div>
     </div>
   </section>
-  <script>
-  function searchHistory(){
-    var recentSearch = []
-    recentSearch.push($('#search').val());
-
-    $.each(recentSearch, function(index, value){
-      localStorage.setItem('lastSearches', JSON.stringify(recentSearch))
-    })
-}
-</script>
+ 
 <script src="/cards-buttons.js"></script>
   <script defer src="auth.js"></script>
   <script defer src="init.js"></script>
   <script defer src="cards-list.js"></script>
   <script src="search.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="last-searches.js"></script>
+  
   </body>
 </html>

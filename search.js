@@ -35,8 +35,7 @@ const renderResults = (data) => {
         `https://api.rawg.io/api/games/${resultsRendered.id}?key=d16525c19948468798732d35e4657b48`,
       )
         .then((res) => res.json())
-        .then((res) => {
-          
+        .then((res) => {          
           const container = document.getElementById('container')
           container.innerHTML = ""
            container.innerHTML += `  <div class="card small-card">
@@ -70,6 +69,15 @@ const renderResults = (data) => {
         </div>
       </div>`
      
+      let recoveredData = localStorage.getItem("lastSearches")
+      if (recoveredData == null) {
+        localStorage.setItem('lastSearches', JSON.stringify([{id: `${res.id}`, name: `${res.name}`}]))
+      } else {
+        let dataSearches = JSON.parse(recoveredData)
+        let newSearch = {id:`${res.id}`, name:`${res.name}`}
+        dataSearches.push(newSearch)
+        localStorage.setItem('lastSearches', JSON.stringify(dataSearches))
+      }
         })
     })
   })
@@ -91,6 +99,6 @@ window.onload = () => {
 
     searchTimeoutToken = setTimeout(() => {
       searchGame(searchFieldElement.value)
-    }, 250)
+    }, 50)
   }
 }
