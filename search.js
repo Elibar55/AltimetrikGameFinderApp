@@ -74,6 +74,10 @@ const renderResults = (data) => {
         localStorage.setItem('lastSearches', JSON.stringify([{id: `${res.id}`, name: `${res.name}`}]))
       } else {
         let dataSearches = JSON.parse(recoveredData)
+        if(dataSearches.length > 1) {
+          dataSearches.reverse()
+          dataSearches.pop()
+        }
         let newSearch = {id:`${res.id}`, name:`${res.name}`}
         dataSearches.push(newSearch)
         localStorage.setItem('lastSearches', JSON.stringify(dataSearches))
