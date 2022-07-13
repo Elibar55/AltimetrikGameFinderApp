@@ -1,9 +1,8 @@
 let page = 1
 let body = ''
 let lastGame
-
+let allGames = []
 const container = document.getElementById('container')
-
 
 //SCROLL LOADER
 
@@ -11,9 +10,8 @@ let scrollWatcher = new IntersectionObserver(
   (entry, scrollWatcher) => {
     entry.forEach((entry) => {
       if (entry.isIntersecting) {
-        page ++
+        page++
         loadGames()
-        
       }
     })
   },
@@ -26,7 +24,9 @@ let scrollWatcher = new IntersectionObserver(
 //DATA LOADER
 
 const loadGames = async () => {
-  fetch(`https://api.rawg.io/api/games?key=d16525c19948468798732d35e4657b48&page=${page}&page_size=20`)
+  fetch(
+    `https://api.rawg.io/api/games?key=d16525c19948468798732d35e4657b48&page=${page}&page_size=20`,
+  )
     .then((response) => response.json())
     .then(({ results }) => {
       gamesData(results)
@@ -34,16 +34,16 @@ const loadGames = async () => {
     .catch((error) => console.log(error))
 
   const gamesData = (data) => {
+    // allGames = [...data, ...data]
     console.log(data)
-  
     for (let i = 0; i < data.length; i++) {
       body += `
-      <div class="card small-card">
+      <div id="${data[i].id}" class="card small-card" onclick="modal(this)">
         <img src=${data[i].background_image} alt="" />
         <div class="card-data">
           <div class="card-title">
             <div class="name card-name-small">${data[i].name}</div>
-            <div class="card-number">#${i + 1}</div>
+            <div class="card-number">#${[i + 1]}</div>
           </div>
           <div class="card-info">
           <div class="specs card-specs-small">
@@ -58,23 +58,32 @@ const loadGames = async () => {
               )}</strong>
             </div>
           </div>
-          <div class="consoles">${data[i].parent_platforms.map((p) =>`<img class="platforms" src="/assets/platforms/${p.platform.name}.svg"/>`)}</div>
+          <div class="consoles">${data[i].parent_platforms.map(
+            (p) =>
+              `<img class="platforms" src="/assets/platforms/${p.platform.name}.svg"/>`,
+          )}</div>
         </div>
-          <div id="${data[i].id}" class="card-description hidden">
-                ${ fetch(`https://api.rawg.io/api/games/${data[i].id}?key=d16525c19948468798732d35e4657b48`)
-                .then((res) => res.json())
-                .then((res) => { 
-                  const description = document.getElementById(data[i].id)
-                  description.innerHTML = `${res.description}`    
-                }) }
+          <div id="desc${data[i].id}" class="card-description hidden">
+                
           </div>
         </div>
       </div>
          `
+      function description() {
+        fetch(
+          `https://api.rawg.io/api/games/${data[i].id}?key=d16525c19948468798732d35e4657b48`,
+        )
+          .then((res) => res.json())
+          .then((res) => {
+            let description = document.getElementById(`desc${data[i].id}`)
+            description.innerHTML = `${res.description}`
+          })
+      }
+      description()
     }
     document.getElementById('container').innerHTML = body
     const gamesLoaded = document.querySelectorAll('#container .card')
-    lastGame = gamesLoaded[gamesLoaded.length - 1]
+    lastGame = gamesLoaded[gamesLoaded.length - 4]
     scrollWatcher.observe(lastGame)
   }
 }

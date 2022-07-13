@@ -38,7 +38,7 @@ const renderResults = (data) => {
         .then((res) => {          
           const container = document.getElementById('container')
           container.innerHTML = ""
-           container.innerHTML += `  <div class="card small-card">
+           container.innerHTML += `  <div id="${res.id}" class="card small-card" onclick="modal(this)">
         <img src=${res.background_image} alt="" />
         <div class="card-data">
           <div class="card-title">

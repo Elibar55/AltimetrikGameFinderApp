@@ -201,7 +201,7 @@ ul {
 .container-large {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 75vh;
   width: 697px;
   overflow-y: auto;
   margin-right: 15.75rem;
@@ -283,7 +283,7 @@ strong {
 .consoles {
   display: flex;
   flex-direction: row;
-
+  color: transparent;
   width: 100px;
   overflow: hidden;
   position: relative;
