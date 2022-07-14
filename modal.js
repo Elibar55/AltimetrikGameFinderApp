@@ -1,11 +1,15 @@
+const overlay = document.getElementById('overlay')
+
 function closeModal() {
   let modalSection = document.querySelector('.modal')
   modalSection.classList.add('hidden')
   const modalElements = document.querySelector('.modal-container')
   modalElements.innerHTML = ''
+  overlay.classList.remove('overlay')
 }
 
 function modal(element) {
+  overlay.classList.add('overlay')
   let modalSection = document.querySelector('.modal')
   modalSection.classList.remove('hidden')
   fetch(
@@ -19,7 +23,8 @@ function modal(element) {
         rgba(48, 48, 48, 0.1) 0%,
         #303030 60%
       ), url(${res.background_image})`
-      modalElements.innerHTML = `<div onclick="closeModal()" class="modal-close"><img src="/assets/icons/X.svg" alt="" /></div>
+      modalElements.innerHTML = `
+      <div onclick="closeModal()" class="modal-close"><img src="/assets/icons/X.svg" alt="" /></div>
       <div class="modal-spliter">
       <div class="modal-title-container">
         <div class="modal-platforms">${res.parent_platforms.map(

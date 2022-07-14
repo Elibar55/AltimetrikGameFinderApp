@@ -14,9 +14,18 @@ body {
   color: #ffffff;
   overflow: hidden;
 }
+
+.overlay{
+  background: #000000;
+  opacity: 0.4;
+}
+
 .bars-container {
   display: flex;
   flex-direction: column;
+}
+input{
+  opacity: 1 !important;
 }
 .nav-bar {
   width: 100%;
@@ -38,17 +47,20 @@ body {
   left: 539px;
   top: 24px;
   height: 223px;
+  opacity: 1 !important;
 }
 .nav-bar-search {
   height: 47px;
   width: 362px;
   padding-left: 40px;
   border-radius: 4px;
+  opacity: 1 !important;
 }
 .search-icon {
   position: absolute;
   top: 12px;
   left: 10px;
+  opacity: 1 !important;
 }
 .auto-complete {
   display: flex;
@@ -64,6 +76,7 @@ body {
   box-shadow: 0px 0px 4px rgba(140, 140, 140, 0.25);
   z-index: 5;
   overflow: hidden;
+  opacity: 1 !important;
 }
 
 .search-results {
@@ -73,6 +86,7 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
   color: #3d3d3d;
+  opacity: 1 !important;
 }
 #last-searches {
   text-decoration: none;
