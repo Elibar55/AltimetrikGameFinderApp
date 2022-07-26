@@ -1,15 +1,16 @@
 const overlay = document.getElementById('overlay')
 
+
 function closeModal() {
   let modalSection = document.querySelector('.modal')
   modalSection.classList.add('hidden')
   const modalElements = document.querySelector('.modal-container')
   modalElements.innerHTML = ''
-  overlay.classList.remove('overlay')
+  overlay.classList.remove('overlay-modal')
 }
 
 function modal(element) {
-  overlay.classList.add('overlay')
+  overlay.classList.add('overlay-modal')
   let modalSection = document.querySelector('.modal')
   modalSection.classList.remove('hidden')
   fetch(
@@ -18,19 +19,32 @@ function modal(element) {
     .then((res) => res.json())
     .then((res) => {
       const modalElements = document.querySelector('.modal-container')
-      modalElements.style.backgroundImage = ` linear-gradient(
-        180deg,
-        rgba(48, 48, 48, 0.1) 0%,
-        #303030 60%
-      ), url(${res.background_image})`
+      if (
+        darkModeBtn.getAttribute('src') ===
+        '/assets/dark-mode/Off.svg'
+      ) {
+        modalElements.style.backgroundImage = ` linear-gradient(
+          180deg, 
+          rgba(255, 255, 255, 0.1) 0%,
+           #F0F0F0 60%),
+           url(${res.background_image})`
+      }
+      if (
+        darkModeBtn.getAttribute('src') ===
+        '/assets/dark-mode/On.svg'
+      ) {
+        modalElements.style.backgroundImage = ` linear-gradient(
+          180deg,
+          rgba(48, 48, 48, 0.1) 0%,
+          #303030 60%
+        ), url(${res.background_image})`
+      }
+      
       modalElements.innerHTML = `
       <div onclick="closeModal()" class="modal-close"><img src="/assets/icons/X.svg" alt="" /></div>
       <div class="modal-spliter">
       <div class="modal-title-container">
-        <div class="modal-platforms">${res.parent_platforms.map(
-            (p) =>
-              `<img class="platform" src="/assets/platforms/${p.platform.name}.svg"/>`
-          )}
+        <div class="modal-platforms">
         </div>
         <div class="modal-title">${res.name}</div>
         <div class="modal-markers">
@@ -113,6 +127,43 @@ function modal(element) {
         <div class="modal-screenshots">          
         </div>
       </div>`
+      
+      function platforms() {
+        
+            let consolesF = document.querySelector('.modal-platforms')
+
+            let platformsItems = res.parent_platforms.map(
+              (p) => p.platform.name,
+            )
+
+            const filteredPC = platformsItems.filter((item) => {
+              return item == 'PC'
+            })
+            const filteredXbox = platformsItems.filter((item) => {
+              return item == 'Xbox'
+            })
+            const filteredNintendo = platformsItems.filter((item) => {
+              return item == 'Nintendo'
+            })
+            const filteredPlaystation = platformsItems.filter((item) => {
+              return item == 'PlayStation'
+            })
+
+            let filteredPlatforms = [
+              ...filteredPC,
+              ...filteredXbox,
+              ...filteredNintendo,
+              ...filteredPlaystation,
+            ]
+
+            console.log(filteredPlatforms)
+            for (let f = 0; f < filteredPlatforms.length; f++)
+              consolesF.innerHTML += `<img class="platform" src="/assets/platforms/${filteredPlatforms[f]}.svg"/>`
+          
+      }
+
+      platforms()
+
       if(res.movies_count > 0) {
       function video() {fetch(
         `https://api.rawg.io/api/games/${element.id}/movies?key=d16525c19948468798732d35e4657b48`,

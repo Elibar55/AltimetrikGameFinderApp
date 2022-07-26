@@ -8,6 +8,8 @@
   display: none;
 }
 body {
+  max-width: 1440px;
+  margin: auto;
   width: 100%;
   height: 100vh;
   background: #141414;
@@ -15,7 +17,12 @@ body {
   overflow: hidden;
 }
 
-.overlay{
+.overlay-search .bars-container .title-bar ,
+.overlay-search .bars-container header .search-wrapper :not(input) {
+  filter: blur(2px);
+}
+
+.overlay-modal{
   background: #000000;
   opacity: 0.4;
 }
@@ -44,8 +51,8 @@ input{
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  left: 539px;
-  top: 24px;
+  left: 42%;
+  top: 1.5rem;
   height: 223px;
   opacity: 1 !important;
 }
@@ -122,6 +129,27 @@ input{
   font-weight: 800;
   font-size: 48px;
 }
+.title-dark{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .dark-mode-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-right: 75px;
+    
+  }
+  .dark-mode{
+    font-weight: 400;
+font-size: 15px;
+  }
+  #dark-mode-switch {
+    margin-left: 13px;
+  }
 .sub-buttons {
   display: flex;
   flex-direction: row;
@@ -138,6 +166,9 @@ input{
   justify-content: space-between;
   margin-right: 74px;
   width: 104px;
+}
+button{
+  cursor: pointer;
 }
 .cards-size-container button {
   height: 40px;
@@ -211,7 +242,9 @@ ul {
   flex-direction: row;
   justify-content: space-between;
 }
-
+.card{
+  cursor: pointer;
+}
 .container-large {
   display: flex;
   flex-direction: column;
@@ -283,17 +316,26 @@ ul {
 .release {
   width: 200px;
 }
+.data-realeased{
+  margin-left: 30px;
+}
 strong {
-  margin-left: 10px;
-  margin-right: 20px;
   font-weight: 400;
   font-size: 14px;
   color: #ffffff;
 }
-.data-genres {
-  overflow: hidden;
-  width: 100px;
+.genres {
+  width: 200px;
+  white-space: nowrap;
 }
+.data-genres{
+  width: 80px;
+  margin-left: 65px;
+  
+  white-space: normal;
+  
+}
+
 .consoles {
   display: flex;
   flex-direction: row;

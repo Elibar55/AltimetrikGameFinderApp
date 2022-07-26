@@ -1,6 +1,7 @@
 html, body
 {
 	height: 100%;
+    
 }
 .modal-container {
 
@@ -10,8 +11,8 @@ html, body
   height: auto;
   right: 17.5vh;
   top: 12.5vh;
-  background: #303030;
-
+  background: #F0F0F0;
+  color: #FFFFFF;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
@@ -67,6 +68,7 @@ span {
   margin-top: 1.375rem;
   margin-bottom: 24px;
   overflow: scroll;
+  color: #515151;
 }
 .modal-buttons {
   display: flex;
@@ -134,11 +136,13 @@ span {
   font-weight: 400;
   font-size: 16px;
   margin-bottom: 24px;
-  color: #ffffff;
+  color: #515151;
 }
 
 .sub {
   text-decoration-line: underline;
+  color: #515151;
+
 }
 
 .modal-icons {
@@ -176,3 +180,4 @@ span {
   height: 104px;
   width: 184px;
 }
+

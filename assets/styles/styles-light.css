@@ -5,50 +5,32 @@
   font-family: 'Exo';
 }
 body {
-  max-width: 1440px;
+    max-width: 1440px;
   width: 100%;
   height: 100vh;
   background: #141414;
+  color: #515151;
 }
 ::placeholder {
   color: #939393;
 }
-@media only screen and (min-width: 768px){
-  body{
-    max-width: 768px;
-  }
-  .login-container{
-    width: 462px;
-    height: 702px;
-    top: 178px;
-    left: 153px;
-    
-  }
-.game-finder-logo{
-  
- }
- #main-logo-white{
-  left: 30%;
- }
- #main-logo-black{
-  left: 30%;
- }
-}
 .game-finder-logo {
-  position: fixed;
-  padding-left:30%;
+  position: absolute;
+  padding-left: 1.5%;
   padding-top: 2%;
   z-index: 1;
   width: 1440px;
   height: 115px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
 }
 .login-container {
-  position: fixed;
+  position: absolute;
   width: 28.875rem;
   height: 43.875rem;
   right: 100px;
   top: 178px;
-  background: rgba(48, 48, 48, 0.5);
+  background: #f0f0f0;
   background-blend-mode: overlay;
   backdrop-filter: blur(10px);
   border-radius: 12px;
@@ -64,7 +46,7 @@ body {
   margin-left: 50px;
   margin-right: 50px;
   text-align: center;
-  color: #ffffff;
+  color: #515151;
 }
 .login-title {
   font-weight: 700;
@@ -111,7 +93,7 @@ body {
   height: 20px;
   width: 20px;
   border-radius: 4px;
-  border: 1.5px solid #ffffff;
+  border: 1.5px solid #8f8f8f;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -127,6 +109,7 @@ body {
 }
 .remember-me {
   margin-left: 36px;
+  color: #515151;
 }
 .forgot-password {
   text-decoration: none;
@@ -152,7 +135,7 @@ body {
   margin-top: 32px;
   font-weight: 400;
   font-size: 14px;
-  color: #ffffff;
+  color: #515151;
 }
 .signup {
   text-decoration: none;
@@ -168,12 +151,12 @@ body {
   margin-right: 50px;
   font-weight: 400;
   font-size: 14px;
-  color: #ffffff;
+  color: #515151;
 }
 .line {
   height: 1px;
   width: 147.44px;
-  background-color: #ffffff;
+  border: 1px solid #515151;
 }
 .other {
   display: flex;
@@ -188,13 +171,13 @@ body {
 .sm-login-btn {
   align-items: center;
   height: 47px;
-  border: 2px solid #ffffff;
+  border: 2px solid #36b972;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 700;
   font-size: 18px;
   text-align: center;
-  color: #fafafa;
+  color: #36b972;
   background: transparent;
 }
 .logo {
@@ -205,7 +188,6 @@ body {
 /*slider*/
 
 .container-slider {
-  max-width: 1440px;
   width: 100%;
   height: 100%;
   margin: auto;
@@ -213,8 +195,6 @@ body {
   position: relative;
 }
 .slider {
- 
- right: 50%;
   display: flex;
   width: 400%;
   height: 1024px;
@@ -268,5 +248,4 @@ body {
   left: 300px;
   background-color: #141414;
   color: #fafafa;
-
 }

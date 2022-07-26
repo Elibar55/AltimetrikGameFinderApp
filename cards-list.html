@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/styles/cards-list.css" />
-    <link rel="stylesheet" href="/assets/styles/modal.css">
+    <link id="styles" rel="stylesheet" href="/assets/styles/cards-list.css" />
+    <link id="modal-style" rel="stylesheet" href="/assets/styles/modal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>Game Finder App</title>
   </head>
   <body>
-    <div id="overlay" class="overlay">
+    <div id="overlay" class="">
     <div class="bars-container">
-      <div class="nav-bar">
+      <header class="nav-bar">
         <svg
           class="nav-bar-logo"
           width="269"
@@ -76,17 +76,25 @@
           <path fill-rule="evenodd" clip-rule="evenodd" d="M10 4.99999C8.67392 4.99999 7.40215 5.52677 6.46447 6.46446C5.52678 7.40214 5 8.67391 5 9.99999C5 11.3261 5.52678 12.5978 6.46447 13.5355C7.40215 14.4732 8.67392 15 10 15C11.3261 15 12.5979 14.4732 13.5355 13.5355C14.4732 12.5978 15 11.3261 15 9.99999C15 8.67391 14.4732 7.40214 13.5355 6.46446C12.5979 5.52677 11.3261 4.99999 10 4.99999ZM3 9.99999C3 8.89125 3.26338 7.79837 3.76843 6.81134C4.27349 5.82431 5.00578 4.97138 5.90501 4.32276C6.80423 3.67415 7.84467 3.24842 8.94064 3.08063C10.0366 2.91283 11.1568 3.00778 12.2089 3.35764C13.2609 3.7075 14.2149 4.30228 14.9921 5.09298C15.7693 5.88369 16.3476 6.84771 16.6794 7.90567C17.0111 8.96362 17.0868 10.0852 16.9001 11.1782C16.7135 12.2711 16.27 13.304 15.606 14.192L20.707 19.292C20.8946 19.4795 21.0001 19.7339 21.0002 19.9991C21.0003 20.2644 20.895 20.5188 20.7075 20.7065C20.52 20.8941 20.2656 20.9996 20.0004 20.9997C19.7351 20.9998 19.4806 20.8945 19.293 20.707L14.193 15.607C13.1525 16.3853 11.9159 16.8587 10.6217 16.9741C9.32741 17.0895 8.02658 16.8424 6.86481 16.2604C5.70304 15.6784 4.72618 14.7846 4.0436 13.6789C3.36103 12.5732 2.99967 11.2994 3 9.99999Z" fill="#939393"/>
           </svg>
           
-        <section class="auto-complete hidden" id="auto-complete">
-        </section>
+        <div class="auto-complete hidden" id="auto-complete">
+        </div>
         <div id="error-message"></div>
       </div>
         <div class="nav-bar-user">
           <p ><a href="#" class="logout">Log out</a></p>
           <img src="/assets/avatars/Custom.png" alt="" id="avatar" />
         </div>
-      </div>
+      </header>
+      
       <div class="title-bar">
-        <div class="title-text">New and trending</div>
+        <div class="title-dark">
+          <div class="title-text">New and trending</div>
+          <div class="dark-mode-container">
+            <p class="dark-mode">Dark mode</p>
+            <img src="/assets/dark-mode/On.svg" alt="" id="dark-mode-switch" onclick="darkMode(this.src)"/>
+          </div>
+        </div>
+        
         <div class="sub-buttons">
         <h3 class="subtitle-text">Based on player counts and release date</h3>
         <div class="cards-size-container">
@@ -206,18 +214,18 @@
   </section>
   <section class="modal hidden">
     <div class="modal-container">
-      
     </div> 
     </div>
   </section>
 </div>
-<script src="/cards-buttons.js"></script>
+<script id="card-buttons-script" src="/cards-buttons.js"></script>
   <script defer src="auth.js"></script>
   <script defer src="init.js"></script>
   <script defer src="cards-list.js"></script>
   <script src="search.js"></script>
   <script src="last-searches.js"></script>
-  <script src="/modal.js"></script>
+  <script id="modal-script" src="/modal.js"></script>
+  <script src="/light-mode.js"></script>
   
   </body>
 </html>
