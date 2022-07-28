@@ -4,16 +4,25 @@ function lastSearches() {
 
   storagedSearches.forEach((game) => {
     fetch(
-      `https://api.rawg.io/api/games/${game.id}?key=d16525c19948468798732d35e4657b48`,
+      `https://api.rawg.io/api/games/${game.id}?key=ca592f1000fa42228f6320fb85b99587`,
     )
       .then((res) => res.json())
       .then((res) => {
         const container = document.getElementById('container')
 
+        let releasedApi = res.released
+          let released = new Date(releasedApi.split('-').join('/'))
+          let releasedDate =
+            released.toLocaleString('default', { month: 'short' }) +
+            ' ' +
+            released.toLocaleString('default', { day: 'numeric' }) +
+            ', ' +
+            released.toLocaleString('default', { year: 'numeric' })
+
         container.innerHTML += `  <div id="${
           res.id
         }" class="card small-card onclick="modal(this)"">
-                <img src=${res.background_image} alt="" />
+                <img class="small-bkg-img" src=${res.background_image} alt="" />
                 <div class="card-data">
                   <div class="card-title">
                     <div class="name card-name-small">${res.name}</div>
@@ -23,7 +32,7 @@ function lastSearches() {
                   <div class="specs card-specs-small">
                     <div class="release">
                       Release date:
-                      <strong class="data-realeased">${res.released}</strong>
+                      <strong class="data-realeased">${releasedDate}</strong>
                     </div>
                     <div class="genres">
                       Genres:

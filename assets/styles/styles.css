@@ -13,30 +13,10 @@ body {
 ::placeholder {
   color: #939393;
 }
-@media only screen and (min-width: 768px){
-  body{
-    max-width: 768px;
-  }
-  .login-container{
-    width: 462px;
-    height: 702px;
-    top: 178px;
-    left: 153px;
-    
-  }
-.game-finder-logo{
-  
- }
- #main-logo-white{
-  left: 30%;
- }
- #main-logo-black{
-  left: 30%;
- }
-}
+
 .game-finder-logo {
   position: fixed;
-  padding-left:30%;
+  padding-left: 30%;
   padding-top: 2%;
   z-index: 1;
   width: 1440px;
@@ -213,8 +193,7 @@ body {
   position: relative;
 }
 .slider {
- 
- right: 50%;
+  right: 50%;
   display: flex;
   width: 400%;
   height: 1024px;
@@ -268,5 +247,108 @@ body {
   left: 300px;
   background-color: #141414;
   color: #fafafa;
-
+}
+@media only screen and (min-width: 321px) and (max-width: 768px) {
+  .login-container {
+    width: 462px;
+    height: 702px;
+    top: 178px;
+    left: 153px;
+  }
+  .game-finder-logo {
+  }
+  #main-logo-white {
+    left: 30%;
+  }
+  #main-logo-black {
+    left: 30%;
+  }
+}
+@media only screen and (max-width: 320px) {
+  
+  body{
+    height: 567px;
+    overflow: scroll;
+  }
+  .game-finder-logo {
+    height: 78px;
+    width: 320px;
+  }
+  .login-container {
+    width: 320px;
+    height: auto;
+    top: 78px;
+    left: 0;
+    right: 0;
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+  #main-logo-white {
+    margin-top: 13.5px;
+    margin-left: 63.4px;
+    width: 195px;
+    left: 0;
+  }
+  #main-logo-black {
+    margin-top: 13.5px;
+    margin-left: 63.4px;
+    width: 195px;
+    left: 0;
+  }
+  .login-header {
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 22px;
+  }
+  .login-subtitle {
+    white-space: wrap;
+    margin-top: 16px;
+    margin-bottom: 35px;
+  }
+  .form-container {
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 32px;
+  }
+  .icon {
+    top: 185px;
+    right: 30px;
+  }
+  .form-controls {
+    justify-content: unset;
+  }
+  #remember-chk {
+    position: relative;
+    left: 2px;
+  }
+  .remember-me {
+    margin-left: 10px;
+  }
+  .forgot-password {
+    margin-left: 40px;
+  }
+  .login-button {
+    margin-top: 30px;
+  }
+  .separator {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .or {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .other {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .sm-login-btn {
+    font-size: 14px;
+  }
+  .logo{
+    left: 60px;
+    margin-top: -2px;
+  }
 }

@@ -17,21 +17,22 @@ body {
   overflow: hidden;
 }
 
-.overlay-search .bars-container .title-bar ,
-.overlay-search .bars-container header .search-wrapper :not(input) {
+.overlay-search ,
+.overlay-search  :not(input) {
   filter: blur(2px);
 }
-
-.overlay-modal{
-  background: #000000;
-  opacity: 0.4;
+ .overlay-modal-search-bar .search-wrapper .nav-bar-search{
+  filter: blur(2px);
+}
+.overlay-modal {
+  filter: blur(2px);
 }
 
 .bars-container {
   display: flex;
   flex-direction: column;
 }
-input{
+input {
   opacity: 1 !important;
 }
 .nav-bar {
@@ -62,6 +63,10 @@ input{
   padding-left: 40px;
   border-radius: 4px;
   opacity: 1 !important;
+  z-index: 9;
+}
+.search-mobile{
+  display: none;
 }
 .search-icon {
   position: absolute;
@@ -100,7 +105,6 @@ input{
 }
 .nav-bar-user {
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 .logout {
@@ -118,7 +122,7 @@ input{
 }
 
 .title-bar {
-  margin-left: 40px;
+  padding-left: 40px;
   height: 141px;
   width: 100%;
   color: #ffffff;
@@ -129,27 +133,27 @@ input{
   font-weight: 800;
   font-size: 48px;
 }
-.title-dark{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .dark-mode-container{
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    margin-right: 75px;
-    
-  }
-  .dark-mode{
-    font-weight: 400;
-font-size: 15px;
-  }
-  #dark-mode-switch {
-    margin-left: 13px;
-  }
+.title-dark {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.dark-mode-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-right: 75px;
+}
+.dark-mode {
+  font-weight: 400;
+  font-size: 15px;
+}
+.dark-mode-switch {
+  margin-left: 13px;
+  width: 44px;
+}
 .sub-buttons {
   display: flex;
   flex-direction: row;
@@ -167,7 +171,7 @@ font-size: 15px;
   margin-right: 74px;
   width: 104px;
 }
-button{
+button {
   cursor: pointer;
 }
 .cards-size-container button {
@@ -184,10 +188,7 @@ button{
 .inactive {
   background: #303030;
 }
-
 .side-bar-container {
-  display: flex;
-  flex-direction: column;
   margin-left: 40px;
   width: 260px;
   font-weight: 400;
@@ -242,7 +243,7 @@ ul {
   flex-direction: row;
   justify-content: space-between;
 }
-.card{
+.card {
   cursor: pointer;
 }
 .container-large {
@@ -314,9 +315,9 @@ ul {
   height: 19px;
 }
 .release {
-  width: 200px;
+  width: 235px;
 }
-.data-realeased{
+.data-realeased {
   margin-left: 30px;
 }
 strong {
@@ -328,25 +329,23 @@ strong {
   width: 200px;
   white-space: nowrap;
 }
-.data-genres{
+.data-genres {
   width: 80px;
   margin-left: 65px;
-  
   white-space: normal;
-  
 }
-
 .consoles {
   display: flex;
   flex-direction: row;
   color: transparent;
   width: 100px;
-  overflow: hidden;
   position: relative;
-  right: 0;
+  right: 10px;
+}
+.consolesM{
+  display: none;
 }
 .platforms {
-  margin-left: 16px;
   width: 20px;
   height: 20px;
 }
@@ -380,7 +379,7 @@ strong {
   flex: 0 0 31%;
 }
 
-.small-card img {
+.small-bkg-img {
   position: relative;
   width: 100%;
   height: 180px;
@@ -396,7 +395,7 @@ strong {
   color: #ffffff;
 }
 .consoles img {
-  margin-left: 10px;
+  margin-right: 10px;
   width: 20px;
   height: 20px;
 }
@@ -416,4 +415,181 @@ strong {
 
 .hidden {
   display: none;
+}
+
+/* RESPONSIVE MENU */
+.menu-responsive {
+  display: none;
+}
+.menu-switch {
+  margin-left: 20px;
+}
+.menu-icon {
+  margin-left: 24px;
+}
+.responsive-avatar{
+  height: 48px;
+  width: 48px;
+}
+/* MEDIA QUERIES */
+
+@media only screen and (min-width: 321px) and (max-width: 768px) {
+  body {
+    max-width: 768px;
+    padding: 0;
+  }
+  .nav-bar {
+    padding: 0;
+  }
+  .search-wrapper {
+    left: 26%;
+  }
+  .side-bar-container {
+    display: none;
+  }
+  .nav-bar-user {
+    display: none;
+  }
+  .nav-bar-logo {
+    display: none;
+  }
+  .main-container {
+    margin: 0;
+  }
+  .dark-mode-container {
+    margin-right: 24px;
+  }
+  .dark-mode {
+    font-weight: 400;
+    font-size: 15px;
+  }
+  .dark-mode-switch {
+    margin-left: 13px;
+    width: 44px;
+  }
+  .cards-size-container {
+    margin-right: 24px;
+  }
+  .container-small {
+    margin-left: 19.5px;
+    margin-right: 19.5px;
+  }
+  .small-card {
+    width: 351px;
+    flex: 0 0 48%;
+    margin-right: 7px;
+    margin-left: 7px;
+    margin-bottom: 24px;
+  }
+  .container-large {
+    margin-left: 35px;
+    margin-right: 0;
+  }
+  .menu-responsive {
+    display: block;
+  }
+  .consolesM{
+    display: none;
+  }
+  .search-mobile{
+    display: none;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .search-mobile{
+    display: block;
+  }
+  .nav-bar-search {
+    position: fixed;
+    width: 304px;
+    margin-left: 8px;
+    display: none;
+    left: 0;
+    top: 58px;
+  }
+  .auto-complete{
+    position: fixed;
+    width: 304px;
+    left: 8px;
+    top: 113px;
+  }
+
+  .search-icon {
+    display: none;
+  }
+  .nav-bar-user {
+    display: none;
+  }
+  .nav-bar {
+    width: 320px;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .nav-bar-logo {
+    width: 137.7px;
+  }
+  .menu-responsive {
+    display: block;
+    left: 0;
+  }
+  .menu-icon {
+    margin-left: 0;
+  }
+  .title-bar {
+    height: 106px;
+    padding-left: 16px;
+    margin-bottom: 0;
+  }
+  .title-text {
+    font-weight: 800;
+    font-size: 28px;
+  }
+  .subtitle-text {
+    font-weight: 400;
+    font-size: 14px;
+  }
+  .dark-mode-container {
+    display: none;
+  }
+  .cards-size-container {
+    display: none;
+  }
+  .side-bar-container {
+    display: none;
+  }
+  .main-container{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .card{
+    flex: 0 0 100%;
+    width: 288px;
+    height: 332px;
+  }
+  .consoles{
+    display: none;
+  }
+  .consolesM {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    color: transparent;
+    width: 100px;
+    bottom: 0px;   
+    margin-left: -15px;
+    margin-top: 35px;
+  }
+  .platformsM{
+    width: 20px;
+    margin-left: 16px;
+  }
+  .menu{
+    left: 0;
+    width: 320px !important;
+    height: 767px !important;
+  }
+  .menu-items{
+    height: 371px !important;
+  }
 }

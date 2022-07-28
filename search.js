@@ -1,7 +1,15 @@
 const autoCompleteBox = document.getElementById('auto-complete')
+const searchFieldElement = document.getElementById('search')
+const overlaySearch = document.getElementById('overlay')
+
+if (searchFieldElement.value != ""){
+  overlaySearch.classList.add('overlay-search')
+} else {
+  overlaySearch.classList.remove('overlay-search')
+}
 
 const searchGame = async (query) => {
-  const url = `https://api.rawg.io/api/games?key=d16525c19948468798732d35e4657b48&search=${query}&page_size=4`
+  const url = `https://api.rawg.io/api/games?key=ca592f1000fa42228f6320fb85b99587&search=${query}&page_size=4`
   fetch(url)
     .then((response) => response.json())
     .then(({ results }) => {
@@ -18,26 +26,36 @@ const searchGame = async (query) => {
 
 const renderResults = (data) => {
   for (let e = 0; e < data.length; e++) {
-    autoCompleteBox.innerHTML += `         
-           <div id="${data[e].id}" class="search-results" >${data[e].name}</div>
-          `
+    autoCompleteBox.innerHTML += `<div id="${data[e].id}" class="search-results" >${data[e].name}</div>`
   }
 
   var resultsRendered = document.querySelectorAll('.search-results')
   resultsRendered.forEach((resultsRendered) => {
     resultsRendered.addEventListener('click', () => {
       autoCompleteBox.classList.add('hidden')
+      overlaySearch.classList.remove('overlay-search')
+      closeSearch()
+      searchFieldElement.value = ''
       fetch(
-        `https://api.rawg.io/api/games/${resultsRendered.id}?key=d16525c19948468798732d35e4657b48`,
+        `https://api.rawg.io/api/games/${resultsRendered.id}?key=ca592f1000fa42228f6320fb85b99587`,
       )
         .then((res) => res.json())
         .then((res) => {
+          let releasedApi = res.released
+          let released = new Date(releasedApi.split('-').join('/'))
+          let releasedDate =
+            released.toLocaleString('default', { month: 'short' }) +
+            ' ' +
+            released.toLocaleString('default', { day: 'numeric' }) +
+            ', ' +
+            released.toLocaleString('default', { year: 'numeric' })
+
           const container = document.getElementById('container')
           container.innerHTML = ''
           container.innerHTML += `  <div id="${
             res.id
           }" class="card small-card" onclick="modal(this)">
-        <img src=${res.background_image} alt="" />
+        <img class="small-bkg-img" src=${res.background_image} alt="" />
         <div class="card-data">
           <div class="card-title">
             <div class="name card-name-small">${res.name}</div>
@@ -47,7 +65,7 @@ const renderResults = (data) => {
           <div class="specs card-specs-small">
             <div class="release">
               Release date:
-              <strong class="data-realeased">${res.released}</strong>
+              <strong class="data-realeased">${releasedDate}</strong>
             </div>
             <div class="genres">
               Genres:
@@ -65,7 +83,7 @@ const renderResults = (data) => {
 
           function platformsAndDescription() {
             fetch(
-              `https://api.rawg.io/api/games/${res.id}?key=d16525c19948468798732d35e4657b48`,
+              `https://api.rawg.io/api/games/${res.id}?key=ca592f1000fa42228f6320fb85b99587`,
             )
               .then((res) => res.json())
               .then((res) => {
@@ -139,15 +157,17 @@ const renderResults = (data) => {
 let searchTimeoutToken = 0
 
 window.onload = () => {
-  const searchFieldElement = document.getElementById('search')
   searchFieldElement.onkeyup = (event) => {
     clearTimeout(searchTimeoutToken)
 
     if (searchFieldElement.value.trim().length === 0) {
+      autoCompleteBox.innerHTML = ""
       autoCompleteBox.classList.add('hidden')
+      overlaySearch.classList.remove('overlay-search')
       return
     } else {
       autoCompleteBox.classList.remove('hidden')
+      overlaySearch.classList.add('overlay-search')
     }
 
     searchTimeoutToken = setTimeout(() => {
