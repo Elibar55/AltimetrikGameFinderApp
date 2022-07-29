@@ -34,7 +34,6 @@ const loadGames = async () => {
         gamesCollection.push(item)
       })
 
-      console.log(gamesCollection)
       gamesCollection.forEach((game) => {
         if (document.getElementById(`${game.id}`)) {
         } else {
@@ -47,7 +46,6 @@ const loadGames = async () => {
             ', ' +
             released.toLocaleString('default', { year: 'numeric' })
     
-
           games += `
         <div id="${game.id}" class="card small-card" onclick="modal(this)">
           <img class="small-bkg-img" src=${game.background_image} alt="" />

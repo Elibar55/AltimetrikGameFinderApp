@@ -14,26 +14,19 @@ function validation() {
   else if ( !(passPattern.test(password.value)) ) {
     return false;
   }
-  // Si el script ha llegado a este punto, todas las condiciones
-  // se han cumplido, por lo que se devuelve el valor true
+
   return true;
 }
 
 email.addEventListener('input', () => {
   const emailBox = document.querySelector('#email')
- 
-  //const emailText = document.querySelector('.email-text')
 
   if (email.value.match(emailPattern)) {
     emailBox.classList.add('valid')
     emailBox.classList.remove('error')
-    
-    //emailText.innerHTML = 'Valid Email address'
   } else {
     emailBox.classList.add('error')
     emailBox.classList.remove('valid')
-  
-    //emailText.innerHTML = 'Must be a valid Email address'
   }
 })
 
@@ -58,14 +51,6 @@ password.addEventListener('input', () => {
   }
 })
 
-
-//  if ((email.value == true) && (password.value == true)) {
-//     submit.disabled = false;
-//     console.log('podes loguear')
-//   } else {
-//     submit.disabled = true;
-//   }
-
   let button = submit.addEventListener("click", (e) => {
     e.preventDefault();
   
@@ -83,9 +68,9 @@ password.addEventListener('input', () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        // code here //
+
         if (data.error) {
-          alert("Error Password or Username"); /*displays error message*/
+          alert("Error Password or Username"); 
         } else {
           localStorage.setItem('accessToken', JSON.stringify(data.accessToken));
           

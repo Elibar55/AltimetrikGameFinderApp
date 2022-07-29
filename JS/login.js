@@ -92,6 +92,7 @@ class Login {
       field.classList.add('valid')
       passIconSucc.classList.remove('hidden')
       passIconErr.classList.add('hidden')
+      errorMessage.classList.add('hidden')
     }
 
     if (status == 'error') {
@@ -99,6 +100,7 @@ class Login {
       field.classList.add('error')
       passIconSucc.classList.add('hidden')
       passIconErr.classList.remove('hidden')
+      errorMessage.classList.remove('hidden')
     }
   }
 }

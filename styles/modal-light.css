@@ -3,17 +3,19 @@ body {
   height: 100%;
 }
 .modal-container {
-  position: fixed;
+  position: absolute;
   padding: 32px;
   width: 1076px;
   height: auto;
-  right: 13%;
-  top: 111px;
-  background: #303030;
+  right: 17.5vh;
+  top: 12.5vh;
+  background: #f0f0f0;
+  color: #ffffff;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
   border-radius: 24px;
+  
 }
 .modal-close {
   position: relative;
@@ -65,6 +67,7 @@ span {
   margin-top: 1.375rem;
   margin-bottom: 24px;
   overflow: scroll;
+  color: #515151;
 }
 .modal-buttons {
   display: flex;
@@ -131,10 +134,11 @@ span {
   font-weight: 400;
   font-size: 16px;
   margin-bottom: 24px;
-  color: #ffffff;
+  color: #515151;
 }
 .sub {
   text-decoration-line: underline;
+  color: #515151;
 }
 .modal-icons {
   display: flex;
@@ -172,7 +176,6 @@ span {
 }
 
 /* MEDIA QUERIES */
-
 @media only screen and (min-width: 321px) and (max-width: 768px) {
   .nav-bar {
     padding: 0;
@@ -227,7 +230,7 @@ span {
     overflow: scroll;
   }
   .modal-container {
-    height: auto;
+    height: 767px;
     width: 320px;
     left: 0;
     top: 50px;

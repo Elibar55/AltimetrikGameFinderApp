@@ -17,11 +17,11 @@ body {
   overflow: hidden;
 }
 
-.overlay-search ,
-.overlay-search  :not(input) {
+.overlay-search,
+.overlay-search :not(input) {
   filter: blur(2px);
 }
- .overlay-modal-search-bar .search-wrapper .nav-bar-search{
+.overlay-modal-search-bar .search-wrapper .nav-bar-search {
   filter: blur(2px);
 }
 .overlay-modal {
@@ -63,9 +63,9 @@ input {
   padding-left: 40px;
   border-radius: 4px;
   opacity: 1 !important;
-  z-index: 9;
+  z-index: 8;
 }
-.search-mobile{
+.search-mobile {
   display: none;
 }
 .search-icon {
@@ -73,6 +73,7 @@ input {
   top: 12px;
   left: 10px;
   opacity: 1 !important;
+  z-index: 8;
 }
 .auto-complete {
   display: flex;
@@ -314,11 +315,8 @@ ul {
   font-size: 14px;
   height: 19px;
 }
-.release {
-  width: 200px;
-}
 .data-realeased {
-  margin-left: 30px;
+  margin-left: 20px;
 }
 strong {
   font-weight: 400;
@@ -331,8 +329,10 @@ strong {
 }
 .data-genres {
   width: 80px;
-  margin-left: 65px;
-  white-space: normal;
+  margin-left: 56px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .consoles {
   display: flex;
@@ -340,9 +340,9 @@ strong {
   color: transparent;
   width: 100px;
   position: relative;
-  right:10px;
+  right: 10px;
 }
-.consolesM{
+.consolesM {
   display: none;
 }
 .platforms {
@@ -396,7 +396,7 @@ strong {
   color: #515151;
 }
 .consoles img {
-  margin-left: 10px;
+  margin-right: 10px;
   width: 20px;
   height: 20px;
 }
@@ -427,7 +427,7 @@ strong {
 .menu-icon {
   margin-left: 24px;
 }
-.responsive-avatar{
+.responsive-avatar {
   height: 48px;
   width: 48px;
 }
@@ -489,15 +489,15 @@ strong {
   .menu-responsive {
     display: block;
   }
-  .consolesM{
+  .consolesM {
     display: none;
   }
-  .search-mobile{
+  .search-mobile {
     display: none;
   }
 }
 @media only screen and (max-width: 320px) {
-  .search-mobile{
+  .search-mobile {
     display: block;
   }
   .nav-bar-search {
@@ -508,15 +508,17 @@ strong {
     left: 0;
     top: 58px;
   }
-  .auto-complete{
+  .auto-complete {
     position: fixed;
     width: 304px;
     left: 8px;
     top: 113px;
   }
-
   .search-icon {
-    display: none;
+    display: block;
+    position: absolute;
+    left: -115px;
+    top: 45px;
   }
   .nav-bar-user {
     display: none;
@@ -559,16 +561,16 @@ strong {
   .side-bar-container {
     display: none;
   }
-  .main-container{
+  .main-container {
     padding-left: 16px;
     padding-right: 16px;
   }
-  .card{
+  .card {
     flex: 0 0 100%;
     width: 288px;
     height: 332px;
   }
-  .consoles{
+  .consoles {
     display: none;
   }
   .consolesM {
@@ -577,20 +579,20 @@ strong {
     flex-direction: row;
     color: transparent;
     width: 100px;
-    bottom: 0px;   
+    bottom: 0px;
     margin-left: -15px;
     margin-top: 35px;
   }
-  .platformsM{
+  .platformsM {
     width: 20px;
     margin-left: 16px;
   }
-  .menu{
+  .menu {
     left: 0;
     width: 320px !important;
     height: 767px !important;
   }
-  .menu-items{
+  .menu-items {
     height: 371px !important;
   }
 }

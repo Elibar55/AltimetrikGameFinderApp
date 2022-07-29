@@ -4,15 +4,13 @@ class Auth {
         document.querySelector("body").style.display = "none";
         const auth = localStorage.getItem("accessToken");
         this.validateAuth(auth);
-
     }  
 
     validateAuth(auth) {
         if(auth == "" || auth == null || auth == "undefined") {
             window.location.replace("/");
         }else{
-            document.querySelector("body").style.display = "block";
-            
+            document.querySelector("body").style.display = "block"; 
         }
     }
 

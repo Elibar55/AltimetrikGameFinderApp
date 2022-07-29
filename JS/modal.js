@@ -20,7 +20,7 @@ function modal(element) {
   )
     .then((res) => res.json())
     .then((res) => {
-      console.log(res)
+      
       const modalElements = document.querySelector('.modal-container')
       if (darkModeBtn.getAttribute('src') === '/assets/dark-mode/Off.svg') {
         modalElements.style.backgroundImage = ` linear-gradient(
@@ -46,7 +46,7 @@ function modal(element) {
         released.toLocaleString('default', { year: 'numeric' })
         let developer = ""
         let publisher = ""
-        let esrb_rating = ""
+        let esrb_ratingC = ""
         if(res.publishers.length === 0){
           publisher = "none"
         } else {
@@ -57,10 +57,10 @@ function modal(element) {
         } else {
           developer = res.developers[0].name
         }
-        if(res.esrb_rating === "null"){
-          esrb_rating = "Not rated"
+        if(res.esrb_rating === null){
+          esrb_ratingC = "Not rated"
         } else {
-          esrb_rating = res.esrb_rating.name
+          esrb_ratingC = res.esrb_rating.name
         }
 
       modalElements.innerHTML = `
@@ -129,7 +129,7 @@ function modal(element) {
             </div>
             <div class="modal-agerating">
               <p class="title">Age rating</p>
-              <p class="text">${esrb_rating}</p>
+              <p class="text">${esrb_ratingC}</p>
             </div>
             <div class="modal-icons">
               <img src="/assets/icons/chat-bubbles.svg" alt="" />

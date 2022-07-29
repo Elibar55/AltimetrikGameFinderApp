@@ -172,6 +172,6 @@ window.onload = () => {
 
     searchTimeoutToken = setTimeout(() => {
       searchGame(searchFieldElement.value)
-    }, 50)
+    }, 100)
   }
 }

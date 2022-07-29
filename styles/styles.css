@@ -242,11 +242,11 @@ body {
 
 .error-message {
   position: fixed;
+  float: right;
   z-index: 5;
-  top: 200px;
-  left: 300px;
-  background-color: #141414;
-  color: #fafafa;
+  top: 5px;
+  left: 17%;
+  color:red;
 }
 @media only screen and (min-width: 321px) and (max-width: 768px) {
   .login-container {

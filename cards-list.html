@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link id="styles" rel="stylesheet" href="/assets/styles/cards-list.css" />
-    <link id="modal-style" rel="stylesheet" href="/assets/styles/modal.css">
-    <link rel="stylesheet" href="/assets/styles/responsive-menu.css">
+    <link id="styles" rel="stylesheet" href="/styles/cards-list.css" />
+    <link id="modal-style" rel="stylesheet" href="/styles/modal.css">
+    <link rel="stylesheet" href="/styles/responsive-menu.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -116,7 +116,7 @@
           />
         </svg>
         <div class="nav-bar-user">
-          <p ><a href="#" class="logout">Log out</a></p>
+          <p ><a href="#" onclick="auth.logOut()" class="logout">Log out</a></p>
           <img src="/assets/avatars/Custom.png" alt="" class="responsive-avatar" id="avatar" />
         </div>
         <div onclick="openSearch()" class="search-mobile">
@@ -256,16 +256,16 @@
     </div>
   </section>
 </div>
-<script id="card-buttons-script" src="/cards-buttons.js"></script>
-  <script defer src="auth.js"></script>
-  <script defer src="init.js"></script>
-  <script defer src="cards-list.js"></script>
-  <script src="search.js"></script>
-  <script src="last-searches.js"></script>
-  <script id="modal-script" src="/modal.js"></script>
-  <script src="/light-mode.js"></script>
-  <script src="/responsive-menu.js"></script>
-  <script src="search-responsive.js"></script>
+<script id="card-buttons-script" src="/JS/cards-buttons.js"></script>
+  <script defer src="/JS/auth.js"></script>
+  <script defer src="/JS/init.js"></script>
+  <script defer src="/JS/cards-list.js"></script>
+  <script src="/JS/search.js"></script>
+  <script src="/JS/last-searches.js"></script>
+  <script id="modal-script" src="/JS/modal.js"></script>
+  <script src="/JS/light-mode.js"></script>
+  <script src="/JS/responsive-menu.js"></script>
+  <script src="/JS/search-responsive.js"></script>
   
   </body>
 </html>
