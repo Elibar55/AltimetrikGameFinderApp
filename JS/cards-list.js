@@ -78,8 +78,8 @@ const loadGames = async () => {
             </div>
           </div>
         </div>
-           `
-          function platformsAndDescription() {
+           `;
+          (function platformsAndDescription() {
             fetch(
               `https://api.rawg.io/api/games/${game.id}?key=ca592f1000fa42228f6320fb85b99587`,
             )
@@ -131,8 +131,7 @@ const loadGames = async () => {
                   }
                 }
               })
-          }
-          platformsAndDescription()
+          })();
         }
       })
       document.getElementById('container').innerHTML = games

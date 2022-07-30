@@ -48,8 +48,8 @@ function lastSearches() {
                   ${res.description}
                   </div>
                 </div>
-              </div>`
-        function platforms() {
+              </div>`;
+        (function platforms() {
           let consolesF = document.getElementById(`consoles${res.id}`)
 
           let platformsItems = res.parent_platforms.map((p) => p.platform.name)
@@ -86,9 +86,7 @@ function lastSearches() {
               consolesF.innerHTML += `<img class="platforms" src="/assets/platforms/${filteredPlatforms[f]}.svg"/>`
             }
           }
-        }
-
-        platforms()
+        })();
       })
   })
 }
