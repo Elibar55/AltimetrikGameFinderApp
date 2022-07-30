@@ -4,6 +4,16 @@
       "email": "prueba@gmail.com",
       "password": "$2a$10$HN23azazM2UKwFZyF0SLkeK5T4lk/wmbv518eUuan.8JegGXT/hU.",
       "id": 1
+    },
+    {
+      "email": "eliseo@gmail.com",
+      "password": "$2a$10$Lu46zUlUruK.UU3ZLTnEgeXnieThimYqrWCXgkKkLQiEyDxK.UycS",
+      "id": 2
+    },
+    {
+      "email": "gnzm.15@gmail.com",
+      "password": "$2a$10$R7dk8oDLzvbVZJXBYNADuOYvbnBlGhcofAt7hofYpfW1S77G.ouPe",
+      "id": 3
     }
   ]
 }
