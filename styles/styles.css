@@ -251,7 +251,7 @@ body {
   color:red;
 }
 /* media queries */
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1441px) {
   .game-finder-logo{
     padding-left: 20%;
   }
