@@ -5,21 +5,23 @@
   font-family: 'Exo';
 }
 body {
-  max-width: 1440px;
+  
   width: 100%;
   height: 100vh;
   background: #141414;
+  
 }
 ::placeholder {
   color: #939393;
 }
 
 .game-finder-logo {
-  position: fixed;
-  padding-left: 30%;
+  max-width: 1440px;
+  position: absolute;
+  padding-left: 5%;
   padding-top: 2%;
   z-index: 1;
-  width: 1440px;
+  width: auto;
   height: 115px;
 }
 .login-container {
@@ -36,6 +38,7 @@ body {
 }
 .login-header {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: space-between;
   width: 362px;
@@ -179,7 +182,7 @@ body {
 }
 .logo {
   position: fixed;
-  left: 111px;
+  
 }
 
 /*slider*/
@@ -246,6 +249,16 @@ body {
   top: 5px;
   left: 17%;
   color:red;
+}
+/* media queries */
+@media only screen and (min-width: 1441px) {
+  .game-finder-logo{
+    padding-left: 20%;
+  }
+  .login-container{
+  right: 20%;
+  }
+  
 }
 @media only screen and (min-width: 321px) and (max-width: 768px) {
   .login-container {

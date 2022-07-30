@@ -1,18 +1,50 @@
 const autoCompleteBox = document.getElementById('auto-complete')
 const searchFieldElement = document.getElementById('search')
 const overlaySearch = document.getElementById('overlay')
+const apiKey = 'ca592f1000fa42228f6320fb85b99587'
 
-if (searchFieldElement.value != ""){
+if (searchFieldElement.value != '') {
   overlaySearch.classList.add('overlay-search')
 } else {
   overlaySearch.classList.remove('overlay-search')
 }
 
 const searchGame = async (query) => {
-  const url = `https://api.rawg.io/api/games?key=ca592f1000fa42228f6320fb85b99587&search=${query}&page_size=4`
+  let platformId= "1, 2, 3, 7"
+  let filteredSearch = searchFieldElement.value.toLowerCase()
+
+  if (
+    filteredSearch.includes('nintendo')) {
+    platformId = '7'
+    autoCompleteBox.innerHTML = ""
+  } 
+
+  if (
+    filteredSearch.includes('pc')) {
+    platformId = '1'
+    autoCompleteBox.innerHTML = ""
+  } 
+
+  if (
+    filteredSearch.includes('playstation')) {
+    platformId = '2'
+    autoCompleteBox.innerHTML = ""
+  } 
+  
+  if (
+    filteredSearch.includes('xbox')) {
+    platformId = '3'
+    autoCompleteBox.innerHTML = ""
+  } 
+
+  console.log(platformId)
+
+  let url = `https://api.rawg.io/api/games?key=${apiKey}&search=${query}&page_size=4&parent_platforms=${platformId}`
+  console.log(url)
   fetch(url)
     .then((response) => response.json())
     .then(({ results }) => {
+      console.log(results)
       renderResults(results)
       body = ''
       document.getElementById('error-message').innerHTML = ''
@@ -35,9 +67,7 @@ const renderResults = (data) => {
       overlaySearch.classList.remove('overlay-search')
       closeSearch()
       searchFieldElement.value = ''
-      fetch(
-        `https://api.rawg.io/api/games/${resultsRendered.id}?key=ca592f1000fa42228f6320fb85b99587`,
-      )
+      fetch(`https://api.rawg.io/api/games/${resultsRendered.id}?key=${apiKey}`)
         .then((res) => res.json())
         .then((res) => {
           let releasedApi = res.released
@@ -79,11 +109,8 @@ const renderResults = (data) => {
           </div>
         </div>
       </div>`
-
-          function platformsAndDescription() {
-            fetch(
-              `https://api.rawg.io/api/games/${res.id}?key=ca592f1000fa42228f6320fb85b99587`,
-            )
+          ;(function platformsAndDescription() {
+            fetch(`https://api.rawg.io/api/games/${res.id}?key=${apiKey}`)
               .then((res) => res.json())
               .then((res) => {
                 let description = document.getElementById(`desc${res.id}`)
@@ -129,8 +156,7 @@ const renderResults = (data) => {
                   }
                 }
               })
-          }
-          platformsAndDescription()
+          })()
 
           let recoveredData = localStorage.getItem('lastSearches')
           if (recoveredData == null) {
@@ -160,7 +186,7 @@ window.onload = () => {
     clearTimeout(searchTimeoutToken)
 
     if (searchFieldElement.value.trim().length === 0) {
-      autoCompleteBox.innerHTML = ""
+      autoCompleteBox.innerHTML = ''
       autoCompleteBox.classList.add('hidden')
       overlaySearch.classList.remove('overlay-search')
       return

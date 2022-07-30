@@ -144,9 +144,9 @@ function modal(element) {
           </div>
         <div class="modal-screenshots">          
         </div>
-      </div>`
+      </div>`;
 
-      function platforms() {
+      (function platforms() {
         let consolesF = document.querySelector('.modal-platforms')
 
         let platformsItems = res.parent_platforms.map((p) => p.platform.name)
@@ -173,12 +173,10 @@ function modal(element) {
 
         for (let f = 0; f < filteredPlatforms.length; f++)
           consolesF.innerHTML += `<img class="platform" src="/assets/platforms/${filteredPlatforms[f]}.svg"/>`
-      }
-
-      platforms()
+      })();
 
       if (res.movies_count > 0) {
-        function video() {
+        (function video() {
           fetch(
             `https://api.rawg.io/api/games/${element.id}/movies?key=ca592f1000fa42228f6320fb85b99587`,
           )
@@ -187,10 +185,10 @@ function modal(element) {
               const modalVideo = document.querySelector('.modal-video')
               modalVideo.innerHTML = `<video src=${results[0].data.max} poster=${results[0].preview} controls></video>`
             })
-        }
-        video()
-      }
-      function screenshots() {
+        })();
+      };
+
+      (function screenshots() {
         fetch(
           `https://api.rawg.io/api/games/${element.id}/screenshots?key=ca592f1000fa42228f6320fb85b99587&page_size=4`,
         )
@@ -203,7 +201,6 @@ function modal(element) {
               modalScreenshots.innerHTML += `<img src=${results[e].image} alt="" />`
             }
           })
-      }
-      screenshots()
+      })();
     })
 }
