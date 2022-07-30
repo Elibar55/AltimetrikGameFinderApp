@@ -13,7 +13,6 @@ const searchGame = async (query) => {
   fetch(url)
     .then((response) => response.json())
     .then(({ results }) => {
-      console.log(results)
       renderResults(results)
       body = ''
       document.getElementById('error-message').innerHTML = ''

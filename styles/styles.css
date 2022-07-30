@@ -239,7 +239,6 @@ body {
 .valid {
   border: 2px solid #00ff00;
 }
-
 .error-message {
   position: fixed;
   float: right;
@@ -254,8 +253,6 @@ body {
     height: 702px;
     top: 178px;
     left: 153px;
-  }
-  .game-finder-logo {
   }
   #main-logo-white {
     left: 30%;

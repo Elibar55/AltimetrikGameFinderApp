@@ -171,7 +171,6 @@ function modal(element) {
           ...filteredPlaystation,
         ]
 
-        console.log(filteredPlatforms)
         for (let f = 0; f < filteredPlatforms.length; f++)
           consolesF.innerHTML += `<img class="platform" src="/assets/platforms/${filteredPlatforms[f]}.svg"/>`
       }
